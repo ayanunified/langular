@@ -1,0 +1,76 @@
+<div class="container-fluid" ng-init="checkForUserUrl();roomtypeList();">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb custom-style">
+                <li class="active">
+                    <a href="#/accomodation_dashboard/{{accomodation.category}}/{{accomodation.accomodation_id}}">Dashboard</a>
+                </li>
+                <li>
+                    Room Types
+                </li>
+            </ol>
+            <h3 class="panel-title main-heading">Room Types</h3>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Click on room type name to go to room list
+                    <a href="#/addroomtypes/{{accomodation.category}}/{{accomodation.accomodation_id}}">
+                        <button type="button" class="btn btn-warning abs-btn rounded-btn">
+                            <img src="images/plus-icon.png" alt="">
+                        </button>
+                    </a>
+                </div>
+                <div class="panel-body no-pad-top-bottom">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped roomstype-dashboard">
+                            <thead>
+                                <tr>
+                                    <th>image</th>
+                                    <th>Sl</th>
+                                    <th>name</th>
+                                    <th>Edit</th>
+                                    <th>delete</th>
+                                    <th>feature</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-if="room_types==0">
+                                <tr>
+                                    <td colspan="6">
+                                        No records found
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody ng-if="room_types.length>0">
+                                <tr ng-repeat="i in room_types">
+                                    <td><img src="{{i.image_to_show}}" alt="" /></td>
+                                    <td>{{$index+1}}</td>
+                                    <td><a href="#/rooms/{{accomodation.category}}/{{accomodation.accomodation_id}}/{{i._id}}">{{i.name}}</a></td>
+                                    <td><a href="#/editroomtypes/{{accomodation.category}}/{{accomodation.accomodation_id}}/{{i._id}}" class="btn btn-warning with-icon"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a></td>
+                                    <td><a ng-click='deleteroomType(i._id)' class="btn btn-danger with-icon"><i class="fa fa-trash-o" aria-hidden="true"></i>delete</a></td>
+                                    <td>
+                                        <span class="featuted-btn" ng-if="i.status==2">featured</span>
+                                        <span ng-if="i.status==1"><a ng-click='makeFeature(i._id)' class="btn btn-info with-icon">make featured</a></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- ng-click='deleteroomType(i._id)' -->
+                    <!-- <ul class="pagination pull-right">
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>

@@ -1,0 +1,245 @@
+<div class="container-fluid" ng-init="">
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb custom-style">
+                <li class="active">
+                    <a href="#/">Dashboard</a>
+                </li>
+                <li class="">
+                    <a href="#/transaction">Transactions</a>
+                </li>
+                <li>
+                    Transaction Details
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: #bbb;padding: 20px;">
+                    <h3 class="panel-title text-center">Manage Transactions</h3>
+                    <!-- <button type="button" class="btn btn-warning abs-btn rounded-btn" ng-click="gotourl('/accomodations-add',[category])"><img src="images/plus-icon.png" alt=""></button> -->
+                </div>
+                <div class="panel-body no-pad-top-bottom" style="font-size: 12px;background-color: #DCDCDC;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="first_box" >
+
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{reference_id|| "N/A"}}</span>
+                                        Reference ID :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{start_time|| "N/A"}}</span>
+                                        Transaction start-date-time :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{complete_time|| "N/A"}}</span>
+                                        Transaction completion-date-time :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{paypal_completion_time|| "N/A"}}</span>
+                                        Paypal completion-date-time :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{status|| "N/A"}}</span>
+                                        Status :
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="first_box">
+
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{total_amt_cash_dr|| "N/A"}}</span>
+                                        Total Amount Debited In Cash :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{total_amt_cash_cr|| "N/A"}}</span>
+                                        Total Amount Credited In Cash :
+                                    </li>
+
+
+
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{tripo_dr|| "N/A"}}</span>
+                                        Total Amount Debited In Tripocredit :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{tripo_cr|| "N/A"}}</span>
+                                        Total Amount Credit In Tripocredit :
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-xs-{{(company.name)?'6':'12'}}" style="padding-right: 0;">
+                            <div class="first_box">
+
+                                <ul class="list-group">
+                                    <li class="list-group-item text-center" style="    border-top-right-radius:0;background-color: #bbb;">
+
+                                        Buyer Info
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{name|| "N/A"}}</span>
+                                        Name :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{addr.add|| "N/A"}}</span>
+                                        Address:
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{addr.city|| "N/A"}}</span>
+                                        City :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{addr.state|| "N/A"}}</span>
+                                        State:
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{addr.country|| "N/A"}}</span>
+                                        Country:
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{email|| "N/A"}}</span>
+                                        email:
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{addr.phone|| "N/A"}}</span>
+                                        phone:
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{card_number|| "N/A"}}</span>
+                                        card used:
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-6" style="padding-left: 0;" ng-if="company.name">
+                            <div class="first_box">
+
+                                <ul class="list-group">
+                                    <li class="list-group-item text-center" style="    border-top-left-radius:0;background-color: #bbb;">
+
+                                        Company Info
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{company.name|| "N/A"}}</span>
+                                        Company Name :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{company.address|| "N/A"}}</span>
+                                        Company Address:
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{company.contact_person|| "N/A"}}</span>
+                                        Company Contact Person :
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span style="float:right;">{{company.email|| "N/A"}}</span>
+                                        Company email
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title text-center" style="background-color: #bbb;">Transaction Details</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="table-responsive" style="overflow: auto;">
+                                                <table class="table table-hover table-bordered">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th >Total Amount Debited From User</th>
+                                                            <td>{{total_amt_debited_user|| "N/A"}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Paypal Handling Charge({{paypal_charge + '%'|| "N/A"}})</th>
+                                                            <td> - {{paypal_amt|| "N/A"}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>ledger Amount</th>
+                                                            <td>{{ledger_amt|| "N/A"}}</td>
+                                                        </tr>
+                                                        <tr ng-if="tripoasia_deduc">
+                                                            <th>Tripoasia Deduction</th>
+                                                            <td> - {{tripoasia_deduc|| "N/A"}}</td>
+                                                        </tr>
+
+                                                        <tr ng-if="details_transaction[0].booking.cash.tripoasia_deduction.paypal_handling_charge.amount">
+                                                            <th>Paypal Handling Charge</th>
+                                                            <td> - {{details_transaction[0].booking.cash.tripoasia_deduction.paypal_handling_charge.amount|| "N/A"}}</td>
+                                                        </tr>
+
+                                                        <tr ng-if="details_transaction[0].booking.cash.total_cash_credited_to_companyowner">
+                                                            <th>Total Amount Credited To Company Owner</th>
+                                                            <td>{{details_transaction[0].booking.cash.total_cash_credited_to_companyowner|| "N/A"}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Total Amount Credited To TripoAsia</th>
+                                                            <td>{{total_amt_cash_cr|| "N/A"}}</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="list-group">
+                                <li class="list-group-item text-center" style="background-color: #bbb;">
+
+                                    Description
+                                </li>
+                                <li class="list-group-item">
+                                    <p style="white-space: normal">
+                                        {{details_transaction[0].description|| "N/A"}}
+                                    </p>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!--  <div class="pagination-cont text-right" ng-show="list.length>0">
+                    <uib-pagination class="pull-right" total-items="Totaldata" items-per-page="recordLimit" ng-model="currentPage" ng-change="accomodation_list()" max-size="5" boundary-links="true" rotate="false"></uib-pagination>
+                </div> -->
+            </div>
+            <!--  <div class="pagination-cont text-right" ng-show="list.length>0">
+                <uib-pagination class="pull-right" total-items="Totaldata" items-per-page="recordLimit" ng-model="currentPage" ng-change="accomodation_list()" max-size="5" boundary-links="true" rotate="false"></uib-pagination>
+            </div> -->
+        </div>
+    </div>
+</div>

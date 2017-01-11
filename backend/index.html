@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+    <head>
+        <title>TripoAsia</title>
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/angular/angular.js"></script>
+        
+    </head>
+   
+
+    <body ng-controller='indexcontroller'>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div id="page-content-wrapper" class="">
+                <ui-view>
+                </ui-view>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+ <script src="../bower_components/tg-angular-validator/dist/angular-validator.js"></script>
+<script src="scripts/app.js "></script>
+
+
+
+<script src="scripts/pages/pages.module.js"></script>
+<script src="scripts/pages/login/login.module.js"></script>
+<script src="scripts/pages/login/login.controller.js"></script>
+<script src="scripts/pages/login/login.service.js"></script>
+
+<script src="WebJs/config-service.js"></script>
+<script src="WebJs/angularconfig.js"></script>
+<script src="WebJs/shttp.js"></script>
+
+
+
+
+
+</html>

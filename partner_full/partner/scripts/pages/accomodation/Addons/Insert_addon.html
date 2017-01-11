@@ -1,0 +1,116 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb custom-style">
+                <li class="active">
+                    <a href="#/accomodation_dashboard/{{accomodation.category}}/{{accomodation.accomodation_id}}">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#/Addonlist/{{accomodation.accomodation_id}}">AddonList</a>
+                </li>
+                <li>
+                    Add Addons
+                </li>
+            </ol>
+            <h3 class="panel-title main-heading">Add Addons</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <!-- <div class="row" ng-if="features==0">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <h3>Add some features for this accomodation</h3>
+                            </div>
+                        </div>
+                    </div> -->
+                  
+                        <form angular-validator-submit="addonInsert()" name="addrf" id="addrf" novalidate angular-validator>
+                          <div class="row">
+                            <div class="col-sm-12">
+                                <label for="sel1">Addon Type(<span style="color:red">*</span>):</label>
+                                <div class="form-group">
+                                    <div class="own-checkbox">
+                                        <input id="checkbox_1" type="radio" name="types" ng-value='"SingleAddon"' ng-model="addon.type">
+                                        <label for="checkbox_1">
+                                            Single Addon
+                                        </label>
+                                    </div>
+                                    <div class="own-checkbox">
+                                        <input id="checkbox_2" type="radio" name="types" ng-value='"MultiAddon"' ng-model="addon.type">
+                                        <label for="checkbox_2">
+                                            Multiple Addon
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="sel1">Addon Name(<span style="color:red">*</span>):</label>
+                                            <input class="form-control" name="afname" id="afname" type="text" validate-on="dirty" required-message="'This field is required..'" ng-model="addon.name" placeholder="Name" required autocomplete='off'>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1"> Price In Cash(<span style="color:red">*</span>):</label>
+                                            <input class="form-control" name="aTripocredit" id="aTripocredit" type="text" validate-on="dirty" required-message="'This field is required..'" ng-model="addon.price.cash" placeholder="Cash price" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" invalid-message="'Enter a valid amount'" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1"> Price In TC(<span style="color:red">*</span>):</label>
+                                            <input class="form-control" name="acash" id="acash" type="text" validate-on="dirty" required-message="'This field is required..'" ng-model="addon.price.tripo" placeholder="Tripocredit price" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" invalid-message="'Enter a valid amount'" required>
+                                        </div>
+                                    </div>
+
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="sel1">Description</label>
+                                    <textarea class="form-control" name="adesc" id="adesc" type="text" ng-model="addon.description" placeholder="Description" style="height:100px;"></textarea>
+                                </div>
+
+
+                                        <div class="form-group">
+                                            <label for="sel1">Upload Icon(<span style="color:red">*</span>):</label>
+                                            <div class="upload_icon" style="background-image: url('{{profilepic}}');background-repeat: no-repeat;background-size: cover;"><input type="file" file-model="profile_pic" file-src="profilepic" name="file"/></div>
+                                        </div>
+                                   
+
+                            </div>
+
+
+                          
+                            
+                            
+                            
+                             </div>
+
+                            <div class="col-sm-3">
+                                
+                             <button type="submit" class="btn btn-primary" ng-show="!showedit">Submit</button>
+                             <button type="button" class="btn btn-primary" ng-show="showedit" ng-click="edit();">Edit</button>
+
+
+                            </div>
+                        </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

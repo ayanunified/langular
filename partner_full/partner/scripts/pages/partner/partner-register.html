@@ -1,0 +1,169 @@
+<div class="container-fluid" ng-init="">
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb custom-style">
+                <li class="active">
+                    <a href="#/">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#/sub-user">Partners</a>
+                </li>
+                <li>
+                    {{edit == true ? 'Edit' : 'Add'}} Partner
+                </li>
+            </ol>
+            <h3 class="panel-title main-heading">{{edit == true ? 'Edit' : 'Add'}} Partner</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="partnarFrom" id="partnarFrom" angular-validator-submit="create_partner()" angular-validator novalidate="">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4>Personal Information:</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="title">Title <span style="color:red">*</span></label>
+                                            <select id="title" required="" validate-on="blur" required-message="'This field is required..'" name="partner.title" ng-model="partner.title" class="form-control" >
+                                                <option value="">Select</option>
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Master">Master</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <label for="first_name">First Name <span style="color:red">*</span></label>
+                                                <input type="text" id="first_name"validate-on="blur" required-message="'This field is required..'" required="" class="form-control" name="partner.first_name" value="" placeholder="First Name" ng-model="partner.fname"/>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="last_name">Last Name <span style="color:red">*</span></label>
+                                                <input type="text" id="last_name" validate-on="blur" required-message="'This field is required..'" required="" class="form-control" name="partner.last_name" value="" placeholder="Last Name" ng-model="partner.lname"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="dob">DOB <span style="color:red">*</span></label>
+                                            <datepicker date-format="yyyy-MM-dd">
+                                                <input id="dob" name="dob" class="form-control" readonly="" validate-on="blur" required-message="'This field is required..'" required="" ng-model="partner.birthday" date-format=" type="text"/>
+                                            </datepicker>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="email">Email ID <span style="color:red">*</span></label>
+                                            <input type="email" id="email" class="form-control" name="partner.email" validate-on="blur" invalid-message="'The email is invalid.'" required-message="'This field is required..'" required="" value="" placeholder="Email" ng-model="partner.email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4>Contact Information</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="address">Address <span style="color:red">*</span></label>
+                                        <input type="text" id="address" class="form-control" name="partner.address" value="" validate-on="blur" required-message="'This field is required..'" required="" placeholder="Address" ng-model="partner.address"/>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="city">City <span style="color:red">*</span></label>
+                                        <input type="text" id="city" class="form-control" name="partner.city" value="" placeholder="City" validate-on="blur" required-message="'This field is required..'" required="" ng-model="partner.city"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="country">Country <span style="color:red">*</span></label>
+                                        <input type="text" id="country" class="form-control" name="partner.country" value="" placeholder="Country" validate-on="blur" required-message="'This field is required..'" required="" ng-model="partner.country"/>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="state">State / Province / Region <span style="color:red">*</span></label>
+                                        <input type="text" id="state" class="form-control" name="partner.state" value="" placeholder="State" validate-on="blur" required-message="'This field is required..'" required="" ng-model="partner.state"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="zip">ZIP / Postal Code <span style="color:red">*</span></label>
+                                        <input type="text" id="zip" class="form-control" name="partner.zip" value="" placeholder="Zip code" validate-on="blur" required-message="'This field is required..'" required="" ng-model="partner.zip"/>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="phone">Personal Phone Number <span style="color:red">*</span></label>
+                                        <input type="text" id="phone" class="form-control" name="partner.phone" value="" placeholder="Mobile" validate-on="blur" required-message="'This field is required..'" required="" ng-model="partner.phone"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4>Access Information</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="accomodation_id">Accommodation <span style="color:red">*</span></label>
+                                            <select id="accomodation_id" required="" validate-on="blur"  ng-options="item._id as item.name for item in accomodations" multiple="" required-message="'This field is required..'" name="partner.accomodation_id" ng-model="partner.accomodation_id" class="form-control" >
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="role_id">Roles <span style="color:red">*</span></label>
+                                            <select id="role_id" required="" ng-options="item._id as item.roles_name for item in roles" validate-on="blur" required-message="'This field is required..'" name="partner.role_id" ng-model="partner.role_id" class="form-control" >
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4>Buisness Information</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-12">
+                                        <label for="pemail">Paypal Email <span style="color:red">*</span></label>
+                                        <input type="email" id="pemail" validate-on="blur" invalid-message="'Invalid email.'" required-message="'This field is required..'" required="" class="form-control" name="partner.pemail" value="" placeholder="Paypal Email ID" ng-model="partner.pemail"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12 text-right">
+                                        <button type="button" style="float: left;" ng-click="go_list()" class="btn btn-primary">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

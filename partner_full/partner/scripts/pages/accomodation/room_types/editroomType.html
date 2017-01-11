@@ -1,0 +1,184 @@
+<div class="container-fluid" ng-init="checkForUserUrl();showRoomFeatures();roomTypeRow();image_uploadeds()">
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb custom-style">
+                <li class="active">
+                    <a href="#/accomodation_dashboard/{{accomodation.category}}/{{accomodation.accomodation_id}}">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#/roomtypes/{{accomodation.category}}/{{accomodation.accomodation_id}}">Room Types</a>
+                </li>
+                <li>
+                    Edit Room Type
+                </li>
+            </ol>
+            <h3 class="panel-title main-heading">Edit Room Type</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row" ng-if="features==0">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <h3>Add some features for this accomodation</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="features.length>0">
+                        <form angular-validator-submit="roomtypeEdit()" name="addrf" id="addrf" novalidate angular-validator>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1">Name(<span style="color:red">*</span>):</label>
+                                            <input class="form-control" name="rfname" id="rfname" type="text" validate-on="dirty" required-message="'This field is required..'" ng-model="room.name" required auto-complete fragment='{{base_url}}roomtype/name' fragment-type='0' autocomplete='off'>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1">Number of beds(<span style="color:red">*</span>):</label>
+                                            <select class="form-control" ng-model="room.beds" ng-options="item.id as item.val for item in optionOne">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1">Number of baths(<span style="color:red">*</span>):</label>
+                                            <select class="form-control" ng-model="room.baths" ng-options="item.id as item.val for item in optionOne">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1">Number of hbaths(<span style="color:red">*</span>):</label>
+                                            <select class="form-control" ng-model="room.hbaths" ng-options="item.id as item.val for item in optionOne">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1"> Tripocredit price(<span style="color:red">*</span>):</label>
+                                            <input class="form-control" name="Tripocredit" id="Tripocredit" type="text" validate-on="dirty" required-message="'This field is required..'" ng-model="room.tripocredit" placeholder="Tripocredit price" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" invalid-message="'Enter a valid amount'" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1"> Cash price(<span style="color:red">*</span>):</label>
+                                            <input class="form-control" name="cash" id="cash" type="text" validate-on="dirty" required-message="'This field is required..'" ng-model="room.cash" placeholder="Cash price" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" invalid-message="'Enter a valid amount'" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1"> Tripocredit & Cash price(<span style="color:red">*</span>):</label>
+                                            <input class="form-control" name="both_tripo" id="both_tripo" type="text" validate-on="dirty" required-message="'This field is required..'" ng-model="room.both.tripocredit" placeholder="Tripocredit" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" invalid-message="'Enter a valid amount'" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group dev-margin-v2">
+                                            <!--  <label for="sel1">ss</label> -->
+                                            <input class="form-control" name="both_cash" id="both_cash" type="text" validate-on="dirty" required-message="'This field is required..'" ng-model="room.both.cash" placeholder="Cash" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" invalid-message="'Enter a valid amount'" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="sel1">Max people Accomodation(<span style="color:red">*</span>):</label>
+                                            <br> Adults
+                                            <select class="form-control" ng-model="room.max" ng-options="item.id as item.val for item in optionTwo">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-sm-3">
+                                        <div class="form-group dev-margin-v2">
+                                            Childs
+                                            <select class="form-control" ng-model="room.max.childs" ng-options="item.id as item.val for item in optionTwo">
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="sel1">Room Type Features(<span style="color:red">*</span>):</label>
+                                <div class="form-group">
+                                    <div class="own-checkbox" ng-repeat="feature in features track by $index">
+                                        <input id="checkbox_{{$index}}" type="checkbox" ng-checked="room.featuresCheckbox[feature._id]" ng-model="room.featuresCheckbox[feature._id]">
+                                        <label for="checkbox_{{$index}} ">
+                                            {{feature.name}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="sel2">Addon Features(<span style="color:red">*</span>):</label>
+                                <div class="form-group">
+                                    <div class="own-checkbox" ng-repeat="addon in addons">
+                                        <input id="checkbox1_{{$index}}" type="checkbox" ng-model="room.addonCheckbox[addon._id]">
+                                        <label for="checkbox1_{{$index}}">
+                                            {{addon.name}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" addroom-cell">
+                                <div class="col-sm-12">
+                                    <h3>Room Type Image</h3>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-3 dev-margin-v1" ng-repeat="i in images">
+                                        <input type="file" class="files " id="file_{{i}}" onchange="photo_selected(this.id);" file-model="room.addroomtype[$index]" data-method="setimagefilesize_valid" check-file-type/>
+                                        <div class="file_style"><img src="images/addroom-file.png" alt=""></div>
+                                        <div class="assroom-check  radio-box-style" ng-if="image_uploaded[i]">
+                                            <input id="radio_{{i}}" type="radio" name="radio" ng-model="room.default_image" value='{{$index}}'>
+                                            <label for="radio_{{i}}"></label>
+                                        </div>
+                                        <div class="image_preview" id="image_preview_{{i}}">
+                                            <img id="image_file_{{i}}" />
+                                        </div>
+                                        <label style='color:#a94442;font-weight: normal;' ng-if="msgone[i]">Please upload this image!!!</label>
+                                        <label style='color:#a94442;font-weight: normal;' ng-if="msgtwo[i]">Please upload image file only!!!</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="addroom-cell-photo">
+                                            <a ng-click="addMore()" class="add-more">add more +</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function photo_selected(val) {
+    //alert(val);
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        // get loaded data and render thumbnail.
+        var image = "image_" + val;
+        //alert(image);
+        document.getElementById(image).src = e.target.result;
+    };
+
+    // read the image file as a data URL.
+    var file = document.getElementById(val).files[0];
+    //var file = this.files[0];
+    reader.readAsDataURL(file);
+};
+</script>

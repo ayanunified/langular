@@ -1,0 +1,125 @@
+<!--middle area-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb custom-style">
+                <li class="active">
+                    <a href="#/accomodation_dashboard/{{category}}/{{accomodation_id}}">Dashboard</a>
+                </li>
+                <li class="active">
+                    Edit {{category}}
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edit {{category}}</h3>
+                </div>
+                <form angular-validator-submit="save_accomodation()" name="accomodation_insert" id="accomodation_insert" enctype="multipart/form-data" novalidate angular-validator>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-4 flamingo-right">
+                                <input type="hidden" name="lat" class="form-control" ng-model="accomodation_insert_obj.lat" id="lat">
+                                <input type="hidden" name="long" class="form-control" ng-model="accomodation_insert_obj.long" id="long">
+                                <input type="hidden" ng-model="accomodation_insert_obj.category" name="category" class="form-control" id="category">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input ng-model="accomodation_insert_obj.name" type="text" name="accomodation_name" class="form-control" id="accomodation_name" validate-on="dirty" required-message="'This field is required..'" required>
+                                            <label ng-if="error_msg" style="color:red">Duplicate name applied please change.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 file_upload">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <label for="image">Upload Image</label>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <input type="file" id="files" data-method="setimagefilesize_valid" name='files' file-model="accomodation_insert_obj.file" check-file-type />
+                                                    <!--  <input type="file" name="image" file-model="accomodation_insert_obj.file" id="files" /> -->
+                                                    <div class="file_style">
+                                                        <img id="images" ng-src="{{accomodation_insert_obj.image}}" alt=" ">
+                                                    </div>
+                                                    <!-- <div class="image_preview">
+                                                        <img id="image" />
+                                                    </div> -->
+                                                    <label style='color:#a94442;font-weight: normal;' ng-hide='imagefilesize_valid'>Please upload image file only!!!</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <span style='color:tomato; text-align:center' ng-hide="file_upload_error.error==''">
+                                                          {{file_upload_error.error}}
+                                                      </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="comment">Location</label>
+                                            <input type="text" style="height:50px;" class="form-control" ng-model="accomodation_insert_obj.exact_location" name="exact_location" id="exact_location" placeholder="Enter Location..." validate-on="dirty" required-message="'This field is required..'" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--    <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="sel1">Select Company</label>
+                                                    <select class="form-control" ng-model="accomodation_insert_obj.company_id" ng-init="accomodation_insert_obj.company_id=accomodation_insert_obj.company_id._id" name="company_id" id="company_id" ng-options="item._id as item.name for item in list">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                            </div>
+                            <div class="col-sm-8">
+                                <!--     <div class="admin_top">
+                                            <ul>        onsubmit="return Validate(this);"
+                                                <li>
+                                                    <button type="button" class="btn btn-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div> -->
+                                <div class="admin-map-area" id="map_canvas" style="padding:0;">
+                                    <!-- <img src="images/img-map.jpg" alt=" "> -->
+                                </div>
+                                <button type="submit" class="btn btn-primary map_addBtn">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+<!--middle area end-->
+<!-- /#page-wrapper -->
+<script type="text/javascript" src="js/add_map.js"></script>
+<script>
+document.getElementById("files").onchange = function() {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("images").src = e.target.result;
+    };
+
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+};
+</script>
+<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCo7iHB-UW_ZM4KyleDc_qn3qv6Ra72zSY&libraries=places&callback=initialize" async defer></script> -->

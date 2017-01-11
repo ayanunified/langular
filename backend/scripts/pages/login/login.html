@@ -1,0 +1,16 @@
+<div>
+<center>
+<form name='loginForm' novalidate angular-validator angular-validator-submit="lgnfrmsubmit()">
+Email :- <input type="email" name="email" ng-model="email" id="email" required required-message="'<span class=&#34;help-block error-block basic-block&#34;><b><i class=&#34;fa fa-times&#34;></i>&nbsp;Please provide your email</b></span>'" invalid-message="'<span class=&#34;help-block error-block basic-block&#34;><b><i class=&#34;fa fa-times&#34;></i>&nbsp;Please provide valid email</b></span>'" >
+<br>
+<br>
+Password :- <input type="password" name="password" ng-model="password">
+<br>
+<button type="submit">Login</button>
+<br/>
+	
+</br/>
+<span class="error" ng-show="error"  style="color:red" ng-cloak> {{error}}</span>
+</form>
+<center>
+</div>

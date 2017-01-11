@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tripoAsiaApp" ng-cloak>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>TripoAsia</title>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/sb-admin.css" rel="stylesheet">
+        <!-- <link href="css/plugins/morris.css" rel="stylesheet"> -->
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/dev.css" rel="stylesheet">
+        <link href="css/tobeadded.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <link href="../bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+        <!--  <link href="css/dev.css" rel="stylesheet"> -->
+        <link href="css/loading-bar.min.css" rel="stylesheet">
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/angular/angular.js"></script>
+        <link href="../bower_components/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet" type="text/css" />
+
+        <!-- Just for debugging purposes. Don't actually copy this line! -->
+        <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <!-- Custom styles for this template -->
+    </head>
+    <!-- NAVBAR
+    ================================================== -->
+
+    <body ng-controller="indexcontroller">
+        <!-- topbar<header></header> -->
+        <!-- <div ng-include="'views/top-bar.html'">
+        </div> -->
+    <page-top></page-top>
+    <div id="wrapper">
+        <!--<div class="overlay"></div>-->
+        <!-- sidebar<nav></nav> -->
+        <!-- <div ng-include="'views/sidebar.html'"></div> -->
+        <side-bar></side-bar>
+        <!--middle area-->
+        <div id="page-wrapper">
+            <div id="page-content-wrapper" class="">
+                <button type="button" class="hamburger is-open animated fadeInLeft" data-toggle="offcanvas"> </button>
+                <!-- partner-dashboard<div class="container-fluid"></div> -->
+                <ng-view>
+                </ng-view>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!--middle area end-->
+        <!-- /#page-wrapper -->
+    </div>
+    <!--   <footer class="buttom_area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>&copy; 2016 Tripoasia. All rights reserved.</p>
+                </div>
+                <div class="col-sm-6">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer> -->
+    <!-- <footer class="buttom_area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>&copy; 2016 Tripoasia. All rights reserved.</p>
+                </div>
+                <div class="col-sm-6">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer> -->
+</body>
+<!-- bower:js -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="../bower_components/angular-resource/angular-resource.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="../bower_components/angular-touch/angular-touch.js"></script>
+<script type="text/javascript" src="WebJs/angularjs-dropdown-multiselect.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/ng-idle/angular-idle.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script type="text/javascript" src="https://rawgit.com/pc035860/angular-highlightjs/master/angular-highlightjs.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+<script src="../bower_components/moment/moment.js"></script>
+<script src="../bower_components/Swiper/dist/js/swiper.js"></script>
+<script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="../bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+<script src="../bower_components/odometer/odometer.js"></script>
+<script src="../bower_components/angular-odometer/dist/angular-odometer.js"></script>
+<script src="../bower_components/angular-messages/angular-messages.js"></script>
+<script src="../bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+<script src="../bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="../bower_components/angular-aria/angular-aria.js"></script>
+<script src="../bower_components/angular-material/angular-material.js"></script>
+<script src="../bower_components/angular-payments/lib/angular-payments.min.js"></script>
+<script src="../bower_components/angular-tablesort/js/angular-tablesort.js"></script>
+<script src="../bower_components/tg-angular-validator/dist/angular-validator.min.js"></script>
+<script src="../bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+<script src="../bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.0.0/ui-bootstrap-tpls.js"></script>
+<!-- endbower -->
+<script src="WebJs/angularconfig.js"></script>
+<script src="WebJs/config-service.js"></script>
+<script src="WebJs/modernizr.js"></script>
+<script src="WebJs/imgLiquid-min.js"></script>
+<!--<script src="WebJs/odometer.min.js"></script>-->
+<script src="WebJs/easyResponsiveTabs.js"></script>
+<script src="WebJs/responsivetables.js"></script>
+<script src="WebJs/masonry-docs.min.js"></script>
+<script src="../WebJs/shttp.js"></script>
+<!-- <script src="WebJs/init.js "></script> -->
+<!-- endbuild -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!-- <script src="js/bootstrap.js"></script> -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var trigger = $('.hamburger'),
+                overlay = $('.overlay'),
+                isClosed = false;
+
+        trigger.click(function () {
+            hamburger_cross();
+        });
+
+        function hamburger_cross() {
+
+            if (isClosed == true) {
+                overlay.hide();
+                trigger.removeClass('is-open');
+                trigger.addClass('is-closed');
+                isClosed = false;
+            } else {
+                overlay.show();
+                trigger.removeClass('is-closed');
+                trigger.addClass('is-open');
+                isClosed = true;
+            }
+        }
+
+        $('[data-toggle="offcanvas"]').click(function () {
+            $('#wrapper').toggleClass('toggled');
+        });
+    });
+</script>
+<script src="scripts/app.js "></script>
+
+<!-- include services -->
+
+<script src="scripts/pages/accomodation/accomodationService.js"></script>
+<script src="scripts/components/pageTop/pageTopService.js"></script>
+<script src="scripts/pages/accomodation/room_feature/roomfeatureService.js"></script>
+<script src="scripts/pages/accomodation/room_types/roomtypeService.js"></script>
+<script src="scripts/pages/accomodation/room/roomService.js"></script>
+<script src="scripts/pages/dashboard/dashboardService.js"></script>
+
+<!-- end services -->
+
+<!-- include modules -->
+
+<script src="scripts/pages/pages.module.js"></script>
+<script src="scripts/pages/dashboard/dashboard.module.js"></script>
+<script src="scripts/pages/accomodation/accomodation.module.js"></script>
+<script src="scripts/pages/accomodation/edit_accomodation.js"></script>
+<script src="scripts/components/components.module.js"></script>
+
+
+<!-- end modules -->
+
+<!-- controllers -->
+<script src="scripts/pages/dashboard/DashboardPageCtrl.js"></script>
+<script src="scripts/pages/accomodation/AccomodationPageCtrl.js"></script>
+<script src="scripts/components/pageTop/pageTopCtrl.js"></script>
+<script src="scripts/components/sideBar/sideBarCtrl.js"></script>
+<script src="scripts/pages/accomodation/room_feature/RoomfeaturePageCtrl.js"></script>
+<script src="scripts/pages/accomodation/room_types/RoomtypePageCtrl.js"></script>
+<script src="scripts/pages/accomodation/room/RoomPageCtrl.js"></script>
+<script src="scripts/pages/accomodation/Addons/addonlistctrl.js"></script>
+<script src="scripts/pages/accomodation/Addons/insertaddonctrl.js"></script>
+
+<!-- end controllers -->
+<!-- directives -->
+<script src="scripts/components/pageTop/pageTop.directive.js"></script>
+<script src="scripts/components/sideBar/sideBar.directive.js"></script>
+<script src="scripts/pages/accomodation/accomodation.directive.js"></script>
+<script src="scripts/common/directives/directive.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCo7iHB-UW_ZM4KyleDc_qn3qv6Ra72zSY&libraries=places"></script>
+
+<!-- end directives -->
+<!-- <script src="js/plugins/morris/raphael.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script>
+<script src="js/plugins/morris/morris-data.js"></script> -->
+
+<!-- Partner Scripts -->
+<script src="scripts/pages/partner/partner.module.js"></script>
+<script src="scripts/pages/partner/partner.controller.js"></script>
+<script src="scripts/pages/partner/partner.service.js"></script>
+
+<!-- Transaction Scripts -->
+<script src="scripts/pages/transaction/trans.module.js"></script>
+<script src="scripts/pages/transaction/trans.controller.js"></script>
+<script src="scripts/pages/transaction/trans.service.js"></script>
+
+
+</html>

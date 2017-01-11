@@ -1,0 +1,132 @@
+<div class="container-fluid" ng-init="getdetails()">
+    <div class="overview_area">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Overview</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>
+                                <a href="#/accomodation/Hotels">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <span class="icon-menu-icon1"></span>
+                                                </div>
+                                                <div class="col-xs-9 text-right">
+                                                    <div>Total Hotels</div>
+                                                    <div class="huge">{{viewDetails.hotel}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/accomodation/Resorts">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <span class="icon-menu-icon2"></span>
+                                                </div>
+                                                <div class="col-xs-9 text-right">
+                                                    <div>Total Resorts</div>
+                                                    <div class="huge">{{viewDetails.resort}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/accomodation/Villas">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <span class="icon-menu-icon3"></span>
+                                                </div>
+                                                <div class="col-xs-9 text-right">
+                                                    <div>Total Villas</div>
+                                                    <div class="huge">{{viewDetails.villa}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!--  <li>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <span class="icon-menu-icon4"></span>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div>My Users</div>
+                                                <div class="huge">450</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <span class="icon-menu-icon5"></span>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div>My Partners</div>
+                                                <div class="huge">26</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--            <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Tripocredit</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>45,000.00</h4>
+                                </div>
+                            </div>
+                        </div>-->
+        </div>
+        <div class="row" ng-if="cowner">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Transactions</h3>
+                    </div>
+                    <div class="panel-body" style="overflow-y: scroll;">
+                        <ng-include src="'scripts/pages/transaction/trans.list.html'"></ng-include>
+                    </div>
+                    <!--                    <div class="panel-footer">
+                                            <div class="text-right"><a class="btn btn-success" href="#/transaction">Load More</a></div>
+                                        </div>-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="clearfix"></div> -->
+    <!--  <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <img src="images/dashboard.jpg" alt=" " style="width:100%;">
+            </div>
+        </div>
+    </div> -->
+</div>

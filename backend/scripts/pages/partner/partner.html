@@ -1,0 +1,86 @@
+<div class="container-fluid" ng-init="">
+    <div class="row" ng-init="accomodationLoad()">
+        <div class="col-lg-12">
+            <ol class="breadcrumb custom-style">
+                <li class="active">
+                    <a href="#/">Dashboard</a>
+                </li>
+                <li>
+                    Manage Partners
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Manage Partners</h3>
+                    <a href="#/sub-user/create"><button class="btn btn-warning abs-btn rounded-btn"><img src="images/plus-icon.png" alt=""></button></a>
+                </div>
+                <div class="panel-body no-pad-top-bottom">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Sl</th>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Country</th>
+                                    <th>details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="pa in partners.docs">
+                                    <td>{{last_id + $index}}</td>
+                                    <td>{{pa.title + ' ' + pa.first_name + ' ' + pa.last_name}}</td>
+                                    <td>{{pa.roles_id[0].roles_name}}</td>
+                                    <td>{{pa.email}}</td>
+                                    <td>{{pa.phone}}</td>
+                                    <td>{{pa.country}}</td>
+                                    <td>
+                                        <a href="#/sub-user/edit/{{pa._id}}" title="Edit" class="btn btn-success"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a ng-click="change_partner(pa._id, 1, $index)" ng-if="pa.status == 0" title="Activate" class="btn btn-success"><i class="fa fa-check-circle" aria-hidden="true"></i></a>
+                                        <a ng-click="change_partner(pa._id, 0, $index)" ng-if="pa.status == 1" title="Deactivate" class="btn btn-success"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody ng-if="partners.docs.length == 0">
+                                <tr>
+                                    <td colspan='7'>
+                                        No records found
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" ng-if="partners.docs.length > 0">
+                        <div class="col-sm-6 dev-margin-v1">
+                            <div class="col-sm-1 dev-margin-v1">
+                                Show
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group ">
+                                    <select class="form-control dev-sel" id="sel1" ng-model='pageinfo.currentLimit' ng-change="partnerLoad()">
+                                        <option value="2">2</option>
+                                        <option value="4">4</option>
+                                        <option value="'5'">5</option>
+                                        <option value="6">6</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 dev-margin-v1 margin-left">entries per page</div>
+                        </div>
+                        <div class="pagination-cont text-right">
+                            <uib-pagination class="pull-right" total-items="partners.total" items-per-page="partners.limit" ng-model="pageinfo.currentPage" ng-change="partnerLoad()" max-size="5" boundary-links="true" rotate="false"></uib-pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

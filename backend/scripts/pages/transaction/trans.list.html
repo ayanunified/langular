@@ -1,0 +1,31 @@
+<table class="table table-bordered" ng-controller="TransactionListCntrl">
+    <thead>
+        <tr>
+            <th>Reference id</th>
+            <th>Transaction id</th>
+            <th>Date of transaction</th>
+            <th>Transaction Type</th>
+            <th>Cash Credited</th>
+            <th>Cash Debited</th>
+            <th>TripoCredit Credited</th>
+            <th>TripoCredit Debited</th>
+            <th>View Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tr in translist">
+            <th><a href="#/transaction/{{tr.id}}" class="btn btn-success" title="Details">{{tr.refference_id}}</a></th>
+            <td>{{tr.transaction_id}}</td>
+            <td>{{tr.date}}</td>
+            <td>{{tr.transaction_type}}</td>
+            <td>{{tr.cash_credited}}</td>
+            <td>{{tr.cash_debitted}}</td>
+            <td>{{tr.tc_credited}}</td>
+            <td>{{tr.tc_debited}}</td>
+            <td><a href="#/transaction/{{tr.id}}" class="btn btn-success"><i class="fa fa-eye"></i></a></td>
+        </tr>
+        <tr ng-if="translist.length == 0">
+            <td colspan="8">No records found</td>
+        </tr>
+    </tbody>
+</table>
