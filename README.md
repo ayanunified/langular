@@ -1,0 +1,2 @@
+# langular
+laravel  + angular
